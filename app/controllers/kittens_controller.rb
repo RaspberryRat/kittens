@@ -16,6 +16,7 @@ class KittensController < ApplicationController
       flash[:success] = "You have created a kitten!"
       redirect_to @kitten
     else
+      flash[:error] = "You didn't follow the instructions dummy."
       render :new, status: :unprocessable_entity
     end
   end
@@ -31,12 +32,14 @@ class KittensController < ApplicationController
       flash[:success] = "You have updated your kitten."
       redirect_to @kitten
     else
+      flash[:error] = "You didn't follow the instructions dummy."
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @kitten.destroy
+    flash[:success] = "You have killed your kitten."
 
     redirect_to root_path
   end
