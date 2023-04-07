@@ -1,8 +1,11 @@
 <h2>Your Kitten</h2>
 
 <ul>
-  <li>Name:<%= @kitten.name %></li>
-  <li>Age:<%= @kitten.age %></li>
+  <li>Name: <%= @kitten.name %></li>
+  <li>Age: <%= @kitten.age %></li>
   <li>Cuteness Level: <%= @kitten.cuteness %></li>
   <li>Softness Level: <%= @kitten.softness %></li>
 </ul>
+
+<%= link_to "Edit this Kitten", edit_kitten_path %>
+<%= link_to "Delete this Kitten", kitten_path(@kitten), data: { turbo_method: :delete } %>
